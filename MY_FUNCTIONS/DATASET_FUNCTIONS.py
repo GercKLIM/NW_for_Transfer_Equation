@@ -37,6 +37,64 @@ def create_dataset_from_directory(directory_path, batch_size=1):
     return dataset
 
 
+def create_dataset_from_directory_2(directory_path, batch_size=1):
+    """
+    Создаёт tf.data.Dataset из изображений и меток, извлекаемых из имени файла.
+
+    Формат файла: "label_filename.jpg", где label — это числовое значение метки.
+
+    Аргументы:
+    - directory_path: Путь к папке с изображениями.
+    - batch_size: Размер батча для обучения.
+
+    Возвращает:
+    - dataset: tf.data.Dataset, возвращающий (image, label), где
+               image — тензор формы (batch_size, 128, 128, 1),
+               label — тензор формы (batch_size, 1).
+    """
+    # Получаем список всех файлов в директории
+    file_paths = [os.path.join(directory_path, fname) for fname in os.listdir(directory_path)
+                  if fname.endswith('.jpg') or fname.endswith('.png')]
+
+    # Создаём Dataset из путей к файлам
+    dataset = tf.data.Dataset.from_tensor_slices(file_paths)
+
+    # Функция для загрузки изображения и извлечения метки
+    def load_image_and_label(file_path):
+        # Читаем файл
+        image = tf.io.read_file(file_path)
+
+        # Декодируем изображение как черно-белое (1 канал)
+        image = tf.image.decode_image(image, channels=1, expand_animations=False)
+
+        # Изменяем размер до 128x128
+        image = tf.image.resize(image, [128, 128])
+        image = image / 255.0  # Нормализация в диапазон [0, 1]
+
+        # Извлекаем метку из имени файла
+        file_name = tf.strings.split(file_path, os.sep)[-1]  # Извлекаем имя файла
+        label_str = tf.strings.regex_replace(file_name, r'[^\d.-]', '')  # Убираем всё, кроме цифр, точки и минуса
+
+        # Удаляем лишние точки (если они есть) в конце строки
+        label_str = tf.strings.regex_replace(label_str, r'\.$', '')
+
+        # Преобразуем строку в число
+        label = tf.strings.to_number(label_str, tf.float32)
+
+        # Добавляем измерение, чтобы label имела форму (1,)
+        label = tf.expand_dims(label, axis=-1)
+
+        return image, label
+
+    # Применяем преобразования к каждому элементу
+    dataset = dataset.map(load_image_and_label, num_parallel_calls=tf.data.AUTOTUNE)
+
+    # Разделяем на батчи и предзагружаем данные
+    dataset = dataset.batch(batch_size).prefetch(tf.data.AUTOTUNE)
+
+    return dataset
+
+
 def show_all_images_in_grid(dataset, num_cols=5):
     # Получаем количество изображений в датасете
     dataset_size = sum(1 for _ in dataset)
