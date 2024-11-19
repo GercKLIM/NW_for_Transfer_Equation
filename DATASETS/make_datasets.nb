@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     21454,        486]
-NotebookOptionsPosition[     19910,        454]
-NotebookOutlinePosition[     20346,        471]
-CellTagsIndexPosition[     20303,        468]
+NotebookDataLength[     21960,        539]
+NotebookOptionsPosition[     21059,        517]
+NotebookOutlinePosition[     21495,        534]
+CellTagsIndexPosition[     21452,        531]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -31,56 +31,145 @@ Cell[BoxData[{
  RowBox[{"TrainPath", " ", "=", " ", 
   "\"\<C:\\\\WORK_DIRECTORY\\\\7_\:0421\:0415\:041c\\\\\:041a\:0443\:0440\
 \:0441\:043e\:0432\:0430\:044f \:0440\:0430\:0431\:043e\:0442\:0430 7 \:0441\
-\:0435\:043c\\\\NW_for_Transfer_Equation\\\\DATASETS\\\\DATASET_1\\\\\>\""}]}]\
-, "Input",
+\:0435\:043c\\\\TF_\:0440\:0435\:0433\:0440\:0435\:0441\:0441\:0438\:044f_4\\\
+\\DATASETS\\\\DATASET_1\\\\\>\""}]}], "Input",
  CellChangeTimes->{{3.925460406031725*^9, 3.925460407000501*^9}, {
   3.925460440032612*^9, 3.925460445412487*^9}, {3.938600165031849*^9, 
   3.9386001684026585`*^9}, {3.9386005990244427`*^9, 3.9386006638389587`*^9}, {
   3.938600803252119*^9, 3.938600803424009*^9}, {3.93860083793075*^9, 
   3.938600890183258*^9}, {3.938601065013368*^9, 3.938601071922228*^9}, {
   3.9386019585152817`*^9, 3.938601958797835*^9}, {3.939716933855505*^9, 
-  3.9397169544201336`*^9}, {3.9403970337453938`*^9, 3.9403970997947083`*^9}},
+  3.9397169544201336`*^9}, {3.940397033745394*^9, 3.9403970997947083`*^9}, {
+  3.940989636771221*^9, 3.940989652403036*^9}},
  CellLabel->
-  "In[130]:=",ExpressionUUID->"6c9b0eec-7378-1748-ad8f-b2ec7cd3566b"],
+  "In[153]:=",ExpressionUUID->"6c9b0eec-7378-1748-ad8f-b2ec7cd3566b"],
 
 Cell[BoxData["\<\"C:\\\\WORK_DIRECTORY\\\\7_\:0421\:0415\:041c\\\\\:041a\:0443\
 \:0440\:0441\:043e\:0432\:0430\:044f \:0440\:0430\:0431\:043e\:0442\:0430 7 \
-\:0441\:0435\:043c\\\\NW_for_Transfer_Equation\\\\DATASETS\\\\DATASET_1\\\\\"\
-\>"], "Output",
- CellChangeTimes->{{3.9403970857192974`*^9, 3.94039710107712*^9}, 
+\:0441\:0435\:043c\\\\TF_\:0440\:0435\:0433\:0440\:0435\:0441\:0441\:0438\
+\:044f_4\\\\DATASETS\\\\DATASET_1\\\\\"\>"], "Output",
+ CellChangeTimes->{{3.940397085719298*^9, 3.94039710107712*^9}, 
    3.9404001039012737`*^9, {3.940400407555374*^9, 3.940400429882801*^9}, 
-   3.9404004989211216`*^9},
+   3.940400498921121*^9, 3.940989617082056*^9, 3.940989653576109*^9, {
+   3.9409906167049108`*^9, 3.940990623446544*^9}, 3.940993743204512*^9, {
+   3.9409946087758436`*^9, 3.940994664959944*^9}, 3.9410019779298058`*^9, 
+   3.9410029051337986`*^9, 3.941002975350628*^9},
  CellLabel->
-  "Out[132]=",ExpressionUUID->"1ca1396f-26c0-c34a-87eb-94e3c102358b"]
+  "Out[155]=",ExpressionUUID->"1465f2dd-3f93-ca4e-b1de-e366491cf50c"]
 }, Open  ]],
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"MakeTrainImg", "[", "]"}], ":=", " ", 
+  RowBox[{"MakeImg", "[", 
+   RowBox[{"f_", ",", " ", "SavePath_"}], "]"}], ":=", " ", 
   RowBox[{"Module", "[", 
    RowBox[{
     RowBox[{"{", 
-     RowBox[{"a", ",", "f", ",", "TrainPath", ",", " ", "graph"}], "}"}], ",",
-     "\[IndentingNewLine]", " ", 
+     RowBox[{"a", ",", "ImgPath", ",", " ", "graph", ",", " ", "t"}], "}"}], 
+    ",", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+      "MakeDatasetsTrainPathFull", " ", "=", " ", 
+       "\"\<C:\\\\WORK_DIRECTORY\\\\7_\:0421\:0415\:041c\\\\\:041a\:0443\:0440\
+\:0441\:043e\:0432\:0430\:044f \:0440\:0430\:0431\:043e\:0442\:0430 7 \:0441\
+\:0435\:043c\\\\TF_\:0440\:0435\:0433\:0440\:0435\:0441\:0441\:0438\:044f_4\\\
+\\DATASETS\\\\DATASET_1\\\\fig1\\\\\>\""}], ";"}], "*)"}], 
+    "\[IndentingNewLine]", 
     RowBox[{"For", "[", 
      RowBox[{
-      RowBox[{"a", " ", "=", " ", 
-       RowBox[{"-", "10"}]}], ",", " ", 
-      RowBox[{"a", " ", "<=", " ", "10"}], ",", " ", 
-      RowBox[{"a", " ", "=", " ", 
-       RowBox[{"a", "+", 
-        FractionBox["1", "10"]}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"noize", " ", "=", " ", "100"}], ",", " ", 
+      RowBox[{"noize", " ", "<=", " ", "200"}], ",", " ", 
+      RowBox[{"noize", " ", "+=", "1"}], ",", "\[IndentingNewLine]", 
       RowBox[{
-       RowBox[{
-        RowBox[{"f", "[", "x_", "]"}], " ", "=", " ", 
-        RowBox[{"a", " ", "*", " ", "x"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"graph", " ", "=", 
-        RowBox[{"Plot", "[", 
+       RowBox[{"a", " ", "=", " ", "1"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"t", " ", "=", " ", "0"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"noize", " ", "=", " ", "16"}], ";"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
          RowBox[{
-          RowBox[{"f", "[", "x", "]"}], ",", " ", 
-          RowBox[{"{", 
-           RowBox[{"x", ",", " ", 
-            RowBox[{"-", "1"}], ",", " ", "1"}], "}"}], ",", " ", 
+          RowBox[{"f", "[", "x_", "]"}], " ", "=", 
+          RowBox[{"5", 
+           TagBox[GridBox[{
+              {"\[Piecewise]", GridBox[{
+                 {
+                  RowBox[{
+                   FractionBox["1", "10"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"5", "-", 
+                    RowBox[{"a", " ", "t"}], "+", "x"}], ")"}]}], 
+                  RowBox[{
+                   RowBox[{"-", "5"}], "<", 
+                   RowBox[{
+                    RowBox[{"-", "a"}], " ", 
+                    RowBox[{"(", 
+                    RowBox[{"t", "-", 
+                    FractionBox["x", "a"]}], ")"}]}], "<", "5"}]},
+                 {"0", 
+                  TagBox["True",
+                   "PiecewiseDefault",
+                   AutoDelete->True]}
+                },
+                AllowedDimensions->{2, Automatic},
+                Editable->True,
+                
+                GridBoxAlignment->{
+                 "Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+                
+                GridBoxItemSize->{
+                 "Columns" -> {{Automatic}}, "Rows" -> {{1.}}},
+                GridBoxSpacings->{"Columns" -> {
+                    Offset[0.27999999999999997`], {
+                    Offset[0.84]}, 
+                    Offset[0.27999999999999997`]}, "Rows" -> {
+                    Offset[0.2], {
+                    Offset[0.4]}, 
+                    Offset[0.2]}},
+                Selectable->True]}
+             },
+             GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+             GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{1.}}},
+             GridBoxSpacings->{"Columns" -> {
+                 Offset[0.27999999999999997`], {
+                  Offset[0.35]}, 
+                 Offset[0.27999999999999997`]}, "Rows" -> {
+                 Offset[0.2], {
+                  Offset[0.4]}, 
+                 Offset[0.2]}}],
+            "Piecewise",
+            DeleteWithContents->True,
+            Editable->False,
+            SelectWithContents->True,
+            Selectable->False,
+            StripWrapperBoxes->True]}]}], ";"}], "*)"}], 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"graph", " ", "=", 
+        RowBox[{"ListLinePlot", "[", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"x", ",", " ", 
+              RowBox[{
+               RowBox[{"f", "[", 
+                RowBox[{"x", ",", " ", "t"}], "]"}], "+", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"RandomInteger", "[", 
+                  RowBox[{"{", 
+                   RowBox[{"0", ",", " ", "100"}], "}"}], "]"}], " ", "/", 
+                 " ", "noize"}], ")"}]}]}], "}"}], ",", " ", 
+            RowBox[{"{", 
+             RowBox[{"x", ",", " ", 
+              RowBox[{"-", "10"}], ",", " ", "10", ",", " ", "0.5"}], "}"}]}],
+            "]"}], ",", " ", 
+          RowBox[{"PlotStyle", "->", 
+           RowBox[{"{", 
+            RowBox[{"Black", ",", 
+             RowBox[{"PointSize", "[", "0.015", "]"}]}], "}"}]}], ",", 
           RowBox[{"AspectRatio", " ", "->", " ", "1"}], ",", " ", 
           RowBox[{"Axes", " ", "->", " ", "True"}], ",", " ", 
           RowBox[{"PlotRange", "->", " ", 
@@ -88,16 +177,15 @@ Cell[BoxData[
             RowBox[{
              RowBox[{"{", 
               RowBox[{
-               RowBox[{"-", "1"}], ",", " ", "1"}], "}"}], ",", " ", 
+               RowBox[{"-", "10"}], ",", " ", "10"}], "}"}], ",", " ", 
              RowBox[{"{", 
               RowBox[{
-               RowBox[{"-", "1"}], ",", " ", "1"}], "}"}]}], "}"}]}], ",", 
+               RowBox[{"-", "10"}], ",", " ", "10"}], "}"}]}], "}"}]}], ",", 
           RowBox[{"Frame", "->", "True"}], ",", 
           RowBox[{"FrameTicks", "->", " ", "None"}], ",", " ", 
           RowBox[{"AxesOrigin", " ", "->", " ", 
            RowBox[{"{", 
             RowBox[{"0", ",", "0"}], "}"}]}], ",", " ", 
-          RowBox[{"PlotPoints", " ", "->", " ", "1000"}], ",", " ", 
           RowBox[{"PlotStyle", "->", "Black"}]}], "]"}]}], ";", 
        "\[IndentingNewLine]", "\[IndentingNewLine]", 
        RowBox[{"(*", " ", 
@@ -106,10 +194,11 @@ Cell[BoxData[
          "\:0441\:043e\:0445\:0440\:0430\:043d\:0435\:043d\:0438\:044f", " ", 
          "\:0433\:0440\:0430\:0444\:0438\:043a\:0430"}], " ", "*)"}], 
        "\[IndentingNewLine]", 
-       RowBox[{"TrainPath", " ", "=", " ", 
-        RowBox[{"TrainPath", " ", "<>", "  ", "\"\<TRAIN\\\\\>\"", " ", "<>", 
-         RowBox[{"ToString", "[", "a", "]"}], "<>", " ", "\"\<.png\>\""}]}], 
-       ";", "\[IndentingNewLine]", 
+       RowBox[{"ImgPath", " ", "=", " ", 
+        RowBox[{"SavePath", " ", "<>", " ", 
+         RowBox[{"ToString", "[", 
+          RowBox[{"noize", "-", "100"}], "]"}], "<>", " ", "\"\<.png\>\""}]}],
+        ";", "\[IndentingNewLine]", 
        RowBox[{"(*", " ", 
         RowBox[{
         "\:0421\:043e\:0445\:0440\:0430\:043d\:0435\:043d\:0438\:0435", " ", 
@@ -117,7 +206,7 @@ Cell[BoxData[
          "\:0433\:0440\:0430\:0444\:0438\:043a\:0430"}], " ", "*)"}], 
        "\[IndentingNewLine]", 
        RowBox[{"Export", "[", 
-        RowBox[{"TrainPath", ",", "graph", ",", " ", 
+        RowBox[{"ImgPath", ",", "graph", ",", " ", 
          RowBox[{"ImageSize", " ", "->", " ", 
           RowBox[{"{", 
            RowBox[{"128", ",", "128"}], "}"}]}]}], "]"}], ";"}]}], 
@@ -126,95 +215,201 @@ Cell[BoxData[
    3.939716942297449*^9, {3.939718126275728*^9, 3.9397181493307533`*^9}, {
    3.939719190217609*^9, 3.939719192144369*^9}, {3.94040015656682*^9, 
    3.940400176522524*^9}, {3.9404002638008385`*^9, 3.9404003328018074`*^9}, {
-   3.9404003645281353`*^9, 3.9404003669913044`*^9}, {3.9404004832201347`*^9, 
-   3.9404005341916027`*^9}},
+   3.9404003645281353`*^9, 3.940400366991305*^9}, {3.9404004832201343`*^9, 
+   3.9404005341916027`*^9}, 3.940989669680638*^9, {3.941001913030075*^9, 
+   3.9410019678858967`*^9}, {3.9410029310672817`*^9, 3.941002972434078*^9}, 
+   3.941003315136175*^9},
  CellLabel->
-  "In[137]:=",ExpressionUUID->"a4fd317b-8982-3d46-be32-5d263677281e"],
+  "In[156]:=",ExpressionUUID->"a4fd317b-8982-3d46-be32-5d263677281e"],
 
-Cell[BoxData[
+Cell[BoxData[{
  RowBox[{
-  RowBox[{"MakeTestImg", "[", "]"}], ":=", " ", 
-  RowBox[{"Module", "[", 
+  RowBox[{
+  "Path1", " ", "=", " ", 
+   "\"\<C:\\\\WORK_DIRECTORY\\\\7_\:0421\:0415\:041c\\\\\:041a\:0443\:0440\
+\:0441\:043e\:0432\:0430\:044f \:0440\:0430\:0431\:043e\:0442\:0430 7 \:0441\
+\:0435\:043c\\\\TF_\:0440\:0435\:0433\:0440\:0435\:0441\:0441\:0438\:044f_4\\\
+\\DATASETS\\\\DATASET_1\\\\fig1\\\\\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "Path2", " ", "=", " ", 
+   "\"\<C:\\\\WORK_DIRECTORY\\\\7_\:0421\:0415\:041c\\\\\:041a\:0443\:0440\
+\:0441\:043e\:0432\:0430\:044f \:0440\:0430\:0431\:043e\:0442\:0430 7 \:0441\
+\:0435\:043c\\\\TF_\:0440\:0435\:0433\:0440\:0435\:0441\:0441\:0438\:044f_4\\\
+\\DATASETS\\\\DATASET_1\\\\fig2\\\\\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
    RowBox[{
-    RowBox[{"{", 
-     RowBox[{"a", ",", "f", ",", "TrainPath", ",", " ", "graph"}], "}"}], ",",
-     " ", "\[IndentingNewLine]", 
-    RowBox[{"For", "[", 
-     RowBox[{
-      RowBox[{"a", " ", "=", " ", 
-       RowBox[{"-", "10"}]}], ",", " ", 
-      RowBox[{"a", " ", "<=", " ", "10"}], ",", " ", 
-      RowBox[{"a", " ", "=", " ", 
-       RowBox[{"a", "+", 
-        FractionBox["1", "10"]}]}], ",", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"f", "[", "x_", "]"}], " ", "=", " ", 
-        RowBox[{"a", "  ", "*", " ", "x"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"graph", " ", "=", 
-        RowBox[{"ListPlot", "[", 
-         RowBox[{
-          RowBox[{"Table", "[", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{"x", ",", " ", 
-              RowBox[{
-               RowBox[{"f", "[", "x", "]"}], "+", 
-               RowBox[{"(", 
-                RowBox[{
-                 RowBox[{"RandomInteger", "[", 
-                  RowBox[{"{", 
-                   RowBox[{"0", ",", " ", "1"}], "}"}], "]"}], " ", "/", " ", 
-                 "100"}], ")"}]}]}], " ", "}"}], ",", " ", 
-            RowBox[{"{", 
-             RowBox[{"x", ",", " ", 
-              RowBox[{"-", "1"}], ",", " ", "1", ",", " ", "1"}], "}"}]}], 
-           "]"}], ",", " ", 
-          RowBox[{"PlotStyle", "->", 
-           RowBox[{"{", 
-            RowBox[{"Black", ",", 
-             RowBox[{"PointSize", "[", "0.02", "]"}]}], "}"}]}], ",", 
-          RowBox[{"AspectRatio", " ", "->", " ", "1"}], ",", " ", 
-          RowBox[{"Axes", " ", "->", " ", "True"}], ",", " ", 
-          RowBox[{"PlotRange", "->", " ", 
-           RowBox[{"{", 
+   "Path3", " ", "=", " ", 
+    "\"\<C:\\\\WORK_DIRECTORY\\\\7_\:0421\:0415\:041c\\\\\:041a\:0443\:0440\
+\:0441\:043e\:0432\:0430\:044f \:0440\:0430\:0431\:043e\:0442\:0430 7 \:0441\
+\:0435\:043c\\\\TF_\:0440\:0435\:0433\:0440\:0435\:0441\:0441\:0438\:044f_4\\\
+\\DATASETS\\\\DATASET_1\\\\fig3\\\\\>\""}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"f1", "[", 
+     RowBox[{"x_", ",", " ", "t_"}], "]"}], " ", "=", 
+    RowBox[{"5", 
+     TagBox[GridBox[{
+        {"\[Piecewise]", GridBox[{
+           {
             RowBox[{
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"-", "1"}], ",", " ", "1"}], "}"}], ",", " ", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"-", "1"}], ",", " ", "1"}], "}"}]}], "}"}]}], ",", 
-          RowBox[{"Frame", "->", "True"}], ",", 
-          RowBox[{"FrameTicks", "->", " ", "None"}], ",", " ", 
-          RowBox[{"AxesOrigin", " ", "->", " ", 
-           RowBox[{"{", 
-            RowBox[{"0", ",", "0"}], "}"}]}], ",", " ", 
-          RowBox[{"PlotStyle", "->", "Black"}]}], "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"(*", " ", 
-        RowBox[{
-        "\:041f\:0443\:0442\:044c", " ", 
-         "\:0441\:043e\:0445\:0440\:0430\:043d\:0435\:043d\:0438\:044f", " ", 
-         "\:0433\:0440\:0430\:0444\:0438\:043a\:0430"}], " ", "*)"}], 
-       "\[IndentingNewLine]", 
-       RowBox[{"TrainPath", " ", "=", " ", 
-        RowBox[{
-        "TrainPath", " ", "<>", " ", "\"\<TEST\\\\\>\"", " ", "<>", "  ", 
-         RowBox[{"ToString", "[", "a", "]"}], "<>", " ", "\"\<.png\>\""}]}], 
-       ";", "\[IndentingNewLine]", 
-       RowBox[{"(*", " ", 
-        RowBox[{
-        "\:0421\:043e\:0445\:0440\:0430\:043d\:0435\:043d\:0438\:0435", " ", 
-         "\:0447\:0438\:0441\:0442\:043e\:0433\:043e", " ", 
-         "\:0433\:0440\:0430\:0444\:0438\:043a\:0430"}], " ", "*)"}], 
-       "\[IndentingNewLine]", 
-       RowBox[{"Export", "[", 
-        RowBox[{"TrainPath", ",", "graph", ",", " ", 
-         RowBox[{"ImageSize", " ", "->", " ", 
-          RowBox[{"{", 
-           RowBox[{"128", ",", "128"}], "}"}]}]}], "]"}], ";"}]}], 
-     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+             FractionBox["1", "10"], " ", 
+             RowBox[{"(", 
+              RowBox[{"5", "-", 
+               RowBox[{"a", " ", "t"}], "+", "x"}], ")"}]}], 
+            RowBox[{
+             RowBox[{"-", "5"}], "<", 
+             RowBox[{
+              RowBox[{"-", "a"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"t", "-", 
+                FractionBox["x", "a"]}], ")"}]}], "<", "5"}]},
+           {"0", 
+            TagBox["True",
+             "PiecewiseDefault",
+             AutoDelete->True]}
+          },
+          AllowedDimensions->{2, Automatic},
+          Editable->True,
+          GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+          GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{1.}}},
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.27999999999999997`], {
+               Offset[0.84]}, 
+              Offset[0.27999999999999997`]}, "Rows" -> {
+              Offset[0.2], {
+               Offset[0.4]}, 
+              Offset[0.2]}},
+          Selectable->True]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{1.}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.35]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}],
+      "Piecewise",
+      DeleteWithContents->True,
+      Editable->False,
+      SelectWithContents->True,
+      Selectable->False,
+      StripWrapperBoxes->True]}]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "\:041f\:0440\:0430\:0432\:044b\:0439", " ", 
+    "\:0442\:0440\:0435\:0443\:0433\:043e\:043b\:044c\:043d\:0438\:043a"}], 
+   " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"f2", "[", 
+     RowBox[{"x_", ",", " ", "t_"}], "]"}], " ", "=", 
+    RowBox[{"5", 
+     TagBox[GridBox[{
+        {"\[Piecewise]", GridBox[{
+           {
+            RowBox[{
+             FractionBox["1", "10"], " ", 
+             RowBox[{"(", 
+              RowBox[{"5", "+", "t", "-", "x"}], ")"}]}], 
+            RowBox[{
+             RowBox[{"-", "5"}], "<", 
+             RowBox[{
+              RowBox[{"-", "t"}], "+", "x"}], "<", "5"}]},
+           {"0", 
+            TagBox["True",
+             "PiecewiseDefault",
+             AutoDelete->True]}
+          },
+          AllowedDimensions->{2, Automatic},
+          Editable->True,
+          GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+          GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{1.}}},
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.27999999999999997`], {
+               Offset[0.84]}, 
+              Offset[0.27999999999999997`]}, "Rows" -> {
+              Offset[0.2], {
+               Offset[0.4]}, 
+              Offset[0.2]}},
+          Selectable->True]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{1.}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.35]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}],
+      "Piecewise",
+      DeleteWithContents->True,
+      Editable->False,
+      SelectWithContents->True,
+      Selectable->False,
+      StripWrapperBoxes->True]}]}], ";"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "\:041b\:0435\:0432\:044b\:0439", " ", 
+    "\:0442\:0440\:0435\:0443\:0433\:043e\:043b\:044c\:043d\:0438\:043a"}], 
+   " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"f3", "[", 
+     RowBox[{"x_", ",", " ", "t_"}], "]"}], " ", "=", 
+    RowBox[{"5", 
+     TagBox[GridBox[{
+        {"\[Piecewise]", GridBox[{
+           {"1", 
+            RowBox[{
+             RowBox[{"-", "5"}], "<", 
+             RowBox[{
+              RowBox[{"-", "t"}], "+", "x"}], "<", "5"}]},
+           {"0", 
+            TagBox["True",
+             "PiecewiseDefault",
+             AutoDelete->True]}
+          },
+          AllowedDimensions->{2, Automatic},
+          Editable->True,
+          GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+          GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{1.}}},
+          GridBoxSpacings->{"Columns" -> {
+              Offset[0.27999999999999997`], {
+               Offset[0.84]}, 
+              Offset[0.27999999999999997`]}, "Rows" -> {
+              Offset[0.2], {
+               Offset[0.4]}, 
+              Offset[0.2]}},
+          Selectable->True]}
+       },
+       GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{1.}}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[0.35]}, 
+           Offset[0.27999999999999997`]}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}}],
+      "Piecewise",
+      DeleteWithContents->True,
+      Editable->False,
+      SelectWithContents->True,
+      Selectable->False,
+      StripWrapperBoxes->True]}]}], ";"}], " ", 
+  RowBox[{
+  "(*", " ", 
+   "\:041f\:0440\:044f\:043c\:043e\:0443\:0433\:043e\:043b\:044c\:043d\:0438\
+\:043a", " ", "*)"}]}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.938600178551995*^9, 3.9386004087307873`*^9}, {
    3.938600475070387*^9, 3.938600593099537*^9}, {3.938600657382118*^9, 
    3.938600810059984*^9}, {3.938600934528128*^9, 3.938600955404417*^9}, {
@@ -227,230 +422,98 @@ Cell[BoxData[
    3.939717424876749*^9, 3.939717431923252*^9}, {3.9397174723923016`*^9, 
    3.939717549634596*^9}, {3.9397175855144157`*^9, 3.939717595555141*^9}, {
    3.93971815341254*^9, 3.939718178488001*^9}, 3.939718247589964*^9, {
-   3.9397184256830034`*^9, 3.9397184435462885`*^9}, {3.9397188911453304`*^9, 
+   3.939718425683002*^9, 3.939718443546287*^9}, {3.9397188911453304`*^9, 
    3.939718907256529*^9}, {3.939718937947874*^9, 3.93971893857312*^9}, {
-   3.939719878927075*^9, 3.9397198792865562`*^9}, {3.9404002290669727`*^9, 
+   3.939719878927075*^9, 3.9397198792865562`*^9}, {3.940400229066973*^9, 
    3.940400245884203*^9}, {3.9404002761578026`*^9, 3.94040036281118*^9}, {
-   3.9404004931353836`*^9, 3.940400495367239*^9}, {3.9404005499522343`*^9, 
-   3.9404005542710743`*^9}},
+   3.940400493135383*^9, 3.940400495367239*^9}, {3.940400549952235*^9, 
+   3.940400554271075*^9}, 3.940989675549734*^9, 3.941001910394581*^9, {
+   3.9410019800310326`*^9, 3.9410021549960556`*^9}, {3.9410024995988007`*^9, 
+   3.9410025090121727`*^9}},
  CellLabel->
-  "In[143]:=",ExpressionUUID->"b053a539-cd91-5843-8209-27b93e403a3a"],
+  "In[157]:=",ExpressionUUID->"b053a539-cd91-5843-8209-27b93e403a3a"],
 
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"MakeTestImg", "[", "]"}]], "Input",
- CellChangeTimes->{{3.9404001192375736`*^9, 3.9404001202354736`*^9}, {
-  3.940400377421097*^9, 3.9404003813403893`*^9}, {3.940400539100876*^9, 
-  3.9404005401110535`*^9}},
+Cell[BoxData[{
+ RowBox[{"MakeImg", "[", 
+  RowBox[{"f1", ",", " ", "Path1"}], " ", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"MakeImg", "[", 
+  RowBox[{"f2", ",", " ", "Path2"}], " ", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"MakeImg", "[", 
+  RowBox[{"f3", ",", " ", "Path3"}], " ", "]"}]}], "Input",
+ CellChangeTimes->{{3.9410025542835236`*^9, 3.941002577931801*^9}, {
+  3.9410029025726376`*^9, 3.9410029032607746`*^9}},
  CellLabel->
-  "In[142]:=",ExpressionUUID->"89bec380-7256-c244-acbe-57a8f857b19c"],
+  "In[163]:=",ExpressionUUID->"301e2fb9-c279-3441-885a-76110ff60c91"],
 
-Cell[BoxData[
- TemplateBox[{
-  "StringJoin", "string", 
-   "\"String expected at position \\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \
-\\!\\(\\*RowBox[{\\\"TrainPath$18896\\\", \\\"<>\\\", \
-\\\"\\\\\\\"TEST\\\\\\\\\\\\\\\\-10.png\\\\\\\"\\\"}]\\).\"", 2, 142, 16, 
-   34482253386941107498, "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{{3.9404004076602573`*^9, 3.940400429996767*^9}, 
-   3.9404004990295963`*^9, {3.9404005381589813`*^9, 3.9404005518819695`*^9}},
- CellLabel->
-  "During evaluation of \
-In[142]:=",ExpressionUUID->"381e1f5f-a7c8-714c-a6aa-342bbdddb199"],
-
-Cell[BoxData[
- TemplateBox[{
-  "Export", "chtype", 
-   "\"First argument \\!\\(\\*RowBox[{\\\"TrainPath$18896\\\"}]\\) is not a \
-valid file specification.\"", 2, 142, 17, 34482253386941107498, "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{{3.9404004076602573`*^9, 3.940400429996767*^9}, 
-   3.9404004990295963`*^9, {3.9404005381589813`*^9, 3.940400551923746*^9}},
- CellLabel->
-  "During evaluation of \
-In[142]:=",ExpressionUUID->"f97d3129-689c-114a-a06e-469404c98e2d"],
-
-Cell[BoxData[
- TemplateBox[{
-  "$RecursionLimit", "reclim", 
-   "\"Recursion depth of \\!\\(\\*RowBox[{\\\"1024\\\"}]\\) exceeded.\"", 2, 
-   142, 18, 34482253386941107498, "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{{3.9404004076602573`*^9, 3.940400429996767*^9}, 
-   3.9404004990295963`*^9, {3.9404005381589813`*^9, 3.9404005519336224`*^9}},
- CellLabel->
-  "During evaluation of \
-In[142]:=",ExpressionUUID->"e8816064-201c-8b4f-bd7a-fcca3df61dbf"],
-
-Cell[BoxData[
- RowBox[{"TerminatedEvaluation", "[", "\<\"RecursionLimit\"\>", 
-  "]"}]], "Output",
- CellChangeTimes->{{3.9404004077230167`*^9, 3.9404004300238647`*^9}, 
-   3.940400499052311*^9, {3.9404005381793537`*^9, 3.940400551943348*^9}},
- CellLabel->
-  "Out[142]=",ExpressionUUID->"15df1d0a-3105-9348-a3e7-c6c749a909ab"]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{" ", 
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"a", " ", "=", " ", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{
-   RowBox[{
-   "TrainPath", " ", "=", " ", 
-    "\"\<C:\\\\WORK_DIRECTORY\\\\7_\:0421\:0415\:041c\\\\\:041a\:0443\:0440\
-\:0441\:043e\:0432\:0430\:044f \:0440\:0430\:0431\:043e\:0442\:0430 7 \:0441\
-\:0435\:043c\\\\NW_for_Transfer_Equation\\\\DATASETS\\\\DATASET_2\\\\\>\""}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"For", "[", 
-    RowBox[{
-     RowBox[{"a", " ", "=", " ", 
-      RowBox[{"-", "1"}]}], ",", " ", 
-     RowBox[{"a", " ", "<=", " ", "1"}], ",", " ", 
-     RowBox[{"a", " ", "=", " ", 
-      RowBox[{"a", " ", "+", " ", "0.01"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"t", " ", "=", " ", "0"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"graph", " ", "=", 
+    RowBox[{"ListLinePlot", "[", 
      RowBox[{
-      RowBox[{
-       RowBox[{"f", "[", "x_", "]"}], " ", "=", " ", "a"}], " ", ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"graph", " ", "=", 
-       RowBox[{"Plot", "[", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"x", ",", " ", 
+          RowBox[{"f3", "[", 
+           RowBox[{"x", ",", " ", "t"}], "]"}]}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", " ", 
+          RowBox[{"-", "10"}], ",", " ", "10", ",", " ", "0.5"}], "}"}]}], 
+       "]"}], ",", " ", 
+      RowBox[{"PlotStyle", "->", 
+       RowBox[{"{", 
+        RowBox[{"Black", ",", 
+         RowBox[{"PointSize", "[", "0.015", "]"}]}], "}"}]}], ",", 
+      RowBox[{"AspectRatio", " ", "->", " ", "1"}], ",", " ", 
+      RowBox[{"Axes", " ", "->", " ", "True"}], ",", " ", 
+      RowBox[{"PlotRange", "->", " ", 
+       RowBox[{"{", 
         RowBox[{
-         RowBox[{"f", "[", "x", "]"}], ",", " ", 
          RowBox[{"{", 
-          RowBox[{"x", ",", " ", 
-           RowBox[{"-", "1"}], ",", " ", "1"}], "}"}], ",", " ", 
-         RowBox[{"AspectRatio", " ", "->", " ", "1"}], ",", " ", 
-         RowBox[{"Axes", " ", "->", " ", "True"}], ",", " ", 
-         RowBox[{"PlotRange", "->", " ", 
-          RowBox[{"{", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"-", "1"}], ",", " ", "1"}], "}"}], ",", " ", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"-", "1"}], ",", " ", "1"}], "}"}]}], "}"}]}], ",", 
-         RowBox[{"Frame", "->", "True"}], ",", 
-         RowBox[{"FrameTicks", "->", " ", "None"}], ",", " ", 
-         RowBox[{"AxesOrigin", " ", "->", " ", 
-          RowBox[{"{", 
-           RowBox[{"0", ",", "0"}], "}"}]}], ",", " ", 
-         RowBox[{"PlotPoints", " ", "->", " ", "1000"}], ",", " ", 
-         RowBox[{"PlotStyle", "->", "Black"}]}], "]"}]}], ";", 
-      "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-      RowBox[{"(*", 
-       RowBox[{
-        RowBox[{"graph", " ", "=", 
-         RowBox[{"ListPlot", "[", 
           RowBox[{
-           RowBox[{"Table", "[", 
-            RowBox[{
-             RowBox[{"{", 
-              RowBox[{"x", ",", " ", 
-               RowBox[{
-                RowBox[{"f", "[", "x", "]"}], "+", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"RandomInteger", "[", 
-                   RowBox[{"{", 
-                    RowBox[{"0", ",", " ", "1"}], "}"}], "]"}], " ", "/", " ",
-                   "200"}], ")"}]}]}], " ", "}"}], ",", " ", 
-             RowBox[{"{", 
-              RowBox[{"x", ",", " ", 
-               RowBox[{"-", "1"}], ",", " ", "1", ",", " ", "0.1"}], "}"}]}], 
-            "]"}], ",", " ", 
-           RowBox[{"PlotStyle", "->", 
-            RowBox[{"{", 
-             RowBox[{"Black", ",", 
-              RowBox[{"PointSize", "[", "0.02", "]"}]}], "}"}]}], ",", 
-           RowBox[{"AspectRatio", " ", "->", " ", "1"}], ",", " ", 
-           RowBox[{"Axes", " ", "->", " ", "True"}], ",", " ", 
-           RowBox[{"PlotRange", "->", " ", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"-", "1"}], ",", " ", "1"}], "}"}], ",", " ", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"-", "1"}], ",", " ", "1"}], "}"}]}], "}"}]}], ",", 
-           RowBox[{"Frame", "->", "True"}], ",", 
-           RowBox[{"FrameTicks", "->", " ", "None"}], ",", " ", 
-           RowBox[{"AxesOrigin", " ", "->", " ", 
-            RowBox[{"{", 
-             RowBox[{"0", ",", "0"}], "}"}]}], ",", " ", 
-           RowBox[{"PlotStyle", "->", "Black"}]}], "]"}]}], ";"}], "*)"}], 
-      "\[IndentingNewLine]", "\[IndentingNewLine]", 
-      RowBox[{"(*", " ", 
-       RowBox[{
-       "\:041f\:0443\:0442\:044c", " ", 
-        "\:0441\:043e\:0445\:0440\:0430\:043d\:0435\:043d\:0438\:044f", " ", 
-        "\:0433\:0440\:0430\:0444\:0438\:043a\:0430"}], " ", "*)"}], 
-      "\[IndentingNewLine]", 
-      RowBox[{"TrainPathItem", " ", "=", " ", 
-       RowBox[{"TrainPath", " ", "<>", "  ", "\"\<TRAIN\\\\\>\"", " ", "<>", 
-        RowBox[{"ToString", "[", 
-         RowBox[{"SetPrecision", "[", 
-          RowBox[{
-           RowBox[{"a", "//", "N"}], ",", " ", "2"}], "]"}], "]"}], "<>", 
-        " ", "\"\<.png\>\""}]}], ";", "\[IndentingNewLine]", 
-      RowBox[{"(*", " ", 
-       RowBox[{
-       "\:0421\:043e\:0445\:0440\:0430\:043d\:0435\:043d\:0438\:0435", " ", 
-        "\:0447\:0438\:0441\:0442\:043e\:0433\:043e", " ", 
-        "\:0433\:0440\:0430\:0444\:0438\:043a\:0430"}], " ", "*)"}], 
-      "\[IndentingNewLine]", 
-      RowBox[{"Export", "[", 
-       RowBox[{"TrainPathItem", " ", ",", "graph", ",", " ", 
-        RowBox[{"ImageSize", " ", "->", " ", 
+           RowBox[{"-", "10"}], ",", " ", "10"}], "}"}], ",", " ", 
          RowBox[{"{", 
-          RowBox[{"128", ",", "128"}], "}"}]}]}], "]"}], ";"}]}], 
-    "\[IndentingNewLine]", "]"}]}]}]], "Input",
- CellChangeTimes->{{3.939719110765087*^9, 3.9397191461019*^9}, {
-  3.9397197339165993`*^9, 3.939719867713524*^9}, {3.940397120858423*^9, 
-  3.940397125864912*^9}, {3.940400560425194*^9, 3.9404006412368546`*^9}, {
-  3.940400678120941*^9, 3.940400702723133*^9}, {3.940400821277178*^9, 
-  3.9404008467102184`*^9}, {3.9404009072425957`*^9, 3.9404009078334846`*^9}, {
-  3.940401010080879*^9, 3.9404010103499947`*^9}, {3.9404010991116695`*^9, 
-  3.940401140473192*^9}, {3.9404012001187534`*^9, 3.9404012200561485`*^9}, {
-  3.9404012618874855`*^9, 3.9404013227594147`*^9}, {3.940401408789404*^9, 
-  3.940401450775114*^9}, {3.9404014835941963`*^9, 3.9404014983956375`*^9}},
+          RowBox[{
+           RowBox[{"-", "10"}], ",", " ", "10"}], "}"}]}], "}"}]}], ",", 
+      RowBox[{"Frame", "->", "True"}], ",", 
+      RowBox[{"FrameTicks", "->", " ", "None"}], ",", " ", 
+      RowBox[{"AxesOrigin", " ", "->", " ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}]}], ",", " ", 
+      RowBox[{"PlotStyle", "->", "Black"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "\:0421\:043e\:0445\:0440\:0430\:043d\:0435\:043d\:0438\:0435", " ", 
+    "\:0447\:0438\:0441\:0442\:043e\:0433\:043e", " ", 
+    "\:0433\:0440\:0430\:0444\:0438\:043a\:0430"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "Path4", " ", "=", " ", 
+   "\"\<C:\\\\WORK_DIRECTORY\\\\7_\:0421\:0415\:041c\\\\\:041a\:0443\:0440\
+\:0441\:043e\:0432\:0430\:044f \:0440\:0430\:0431\:043e\:0442\:0430 7 \:0441\
+\:0435\:043c\\\\TF_\:0440\:0435\:0433\:0440\:0435\:0441\:0441\:0438\:044f_4\\\
+\\DATASETS\\\\DATASET_1\\\\truefig\\\\\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+    RowBox[{"Path4", " ", "<>", " ", "\"\<3.png\>\""}], ",", "graph", ",", 
+    " ", 
+    RowBox[{"ImageSize", " ", "->", " ", 
+     RowBox[{"{", 
+      RowBox[{"128", ",", "128"}], "}"}]}]}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.9410033344426785`*^9, 3.941003368299505*^9}, {
+  3.9410034101418686`*^9, 3.9410034772184467`*^9}},
  CellLabel->
-  "In[177]:=",ExpressionUUID->"3b6ce29c-2f94-0640-b956-dd85c3aff9d4"],
-
-Cell[BoxData["\<\"C:\\\\WORK_DIRECTORY\\\\7_\:0421\:0415\:041c\\\\\:041a\:0443\
-\:0440\:0441\:043e\:0432\:0430\:044f \:0440\:0430\:0431\:043e\:0442\:0430 7 \
-\:0441\:0435\:043c\\\\NW_for_Transfer_Equation\\\\DATASETS\\\\DATASET_2\\\\\"\
-\>"], "Output",
- CellChangeTimes->{
-  3.9404006432110195`*^9, {3.9404006848978634`*^9, 3.940400703616419*^9}, 
-   3.9404007787763443`*^9, {3.9404008386997013`*^9, 3.9404008474409447`*^9}, 
-   3.940400912682371*^9, 3.940401015455881*^9, 3.940401146808567*^9, 
-   3.940401222446348*^9, 3.940401270684019*^9, {3.9404013058504696`*^9, 
-   3.9404013268057766`*^9}, 3.940401456333006*^9, 3.9404015011808167`*^9},
- CellLabel->
-  "Out[177]=",ExpressionUUID->"77a7951d-0653-944d-9ff4-90a8104fee10"],
-
-Cell[BoxData[
- TemplateBox[{
-  "Export", "noopen", 
-   "\"Cannot open \
-\\!\\(\\*RowBox[{\\\"\\\\\\\"C:\\\\\\\\\\\\\\\\WORK_DIRECTORY\\\\\\\\\\\\\\\\\
-7_\:0421\:0415\:041c\\\\\\\\\\\\\\\\\:041a\:0443\:0440\:0441\:043e\:0432\:0430\
-\:044f \:0440\:0430\:0431\:043e\:0442\:0430 7 \
-\:0441\:0435\:043c\\\\\\\\\\\\\\\\NW_for_Transfer_Equation\\\\\\\\\\\\\\\\\
-DATASETS\\\\\\\\\\\\\\\\DATASET_2\\\\\\\\\\\\\\\\TRAIN\\\\\\\\\\\\\\\\      \
--16\\\\\\\\n7.5 10.png\\\\\\\"\\\"}]\\).\"", 2, 178, 81, 34482253386941107498,
-    "Local"},
-  "MessageTemplate"]], "Message", "MSG",
- CellChangeTimes->{3.9404014573771286`*^9, 3.9404015168400097`*^9},
- CellLabel->
-  "During evaluation of \
-In[177]:=",ExpressionUUID->"1af1022b-1fa5-074b-88a0-1dc5ea144a69"]
-}, Open  ]]
+  "In[176]:=",ExpressionUUID->"754694fb-62e8-1141-8238-786c487bd6b4"]
 },
 WindowSize->{718.5, 771},
 WindowMargins->{{Automatic, -5.25}, {Automatic, 0}},
@@ -471,23 +534,13 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 1117, 21, 124, "Input",ExpressionUUID->"6c9b0eec-7378-1748-ad8f-b2ec7cd3566b"],
-Cell[1700, 45, 504, 8, 28, "Output",ExpressionUUID->"1ca1396f-26c0-c34a-87eb-94e3c102358b"]
+Cell[580, 22, 1199, 22, 107, "Input",ExpressionUUID->"6c9b0eec-7378-1748-ad8f-b2ec7cd3566b"],
+Cell[1782, 46, 779, 11, 28, "Output",ExpressionUUID->"1465f2dd-3f93-ca4e-b1de-e366491cf50c"]
 }, Open  ]],
-Cell[2219, 56, 3430, 75, 373, "Input",ExpressionUUID->"a4fd317b-8982-3d46-be32-5d263677281e"],
-Cell[5652, 133, 4859, 103, 388, "Input",ExpressionUUID->"b053a539-cd91-5843-8209-27b93e403a3a"],
-Cell[CellGroupData[{
-Cell[10536, 240, 314, 6, 25, "Input",ExpressionUUID->"89bec380-7256-c244-acbe-57a8f857b19c"],
-Cell[10853, 248, 585, 12, 26, "Message",ExpressionUUID->"381e1f5f-a7c8-714c-a6aa-342bbdddb199"],
-Cell[11441, 262, 494, 10, 26, "Message",ExpressionUUID->"f97d3129-689c-114a-a06e-469404c98e2d"],
-Cell[11938, 274, 475, 10, 26, "Message",ExpressionUUID->"e8816064-201c-8b4f-bd7a-fcca3df61dbf"],
-Cell[12416, 286, 325, 6, 28, "Output",ExpressionUUID->"15df1d0a-3105-9348-a3e7-c6c749a909ab"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[12778, 297, 5644, 124, 456, "Input",ExpressionUUID->"3b6ce29c-2f94-0640-b956-dd85c3aff9d4"],
-Cell[18425, 423, 726, 11, 28, "Output",ExpressionUUID->"77a7951d-0653-944d-9ff4-90a8104fee10"],
-Cell[19154, 436, 740, 15, 59, "Message",ExpressionUUID->"1af1022b-1fa5-074b-88a0-1dc5ea144a69"]
-}, Open  ]]
+Cell[2576, 60, 6981, 162, 542, "Input",ExpressionUUID->"a4fd317b-8982-3d46-be32-5d263677281e"],
+Cell[9560, 224, 8321, 209, 314, "Input",ExpressionUUID->"b053a539-cd91-5843-8209-27b93e403a3a"],
+Cell[17884, 435, 502, 10, 60, "Input",ExpressionUUID->"301e2fb9-c279-3441-885a-76110ff60c91"],
+Cell[18389, 447, 2666, 68, 357, "Input",ExpressionUUID->"754694fb-62e8-1141-8238-786c487bd6b4"]
 }
 ]
 *)
